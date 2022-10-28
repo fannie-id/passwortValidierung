@@ -28,9 +28,16 @@ class MainTest {
     }
 
     @Test
-    void when_password_has_Up_Low_Char_output_true(){
+    void when_password_has_Up_Char_output_true(){
         String pw = "fjs9kfG";
-        boolean result = Main.containsUpLow(pw);
+        boolean result = Main.containsUp(pw);
+        assertTrue(result);
+    }
+
+    @Test
+    void when_password_has_Low_Char_output_true(){
+        String pw = "fjs9kfG";
+        boolean result = Main.containsLow(pw);
         assertTrue(result);
     }
     @Test
@@ -40,6 +47,4 @@ class MainTest {
         boolean result = Main.isGoodPW(password,len);
         assertFalse(result);
     }
-
-
 }

@@ -22,31 +22,34 @@ public class Main {
 
     public static boolean containsNum(String str){
         //return str.matches(".*\\d+.*");
-        int countNum = 0;
         for (int i = 0; i < str.length(); i++) {
-            //Character.isDigit(str.charAt(i))
-            if(str.charAt(i)>='0'&&str.charAt(i)<='9'){
-                countNum++;
+            //(str.charAt(i)>='0'&&str.charAt(i)<='9')
+            if(Character.isDigit(str.charAt(i))){
+                return true;
             }
         }
-        return countNum>0;
+        return false;
     }
-    public static boolean containsUpLow(String str){
+    public static boolean containsUp(String str){
         //return str.matches(".*[a-z].*[A-Z].*");
-
-        int countUp = 0;
-        int countDown = 0;
         for (int i = 0; i < str.length(); i++) {
-            //Character.isLowerCase(str.charAt(i))
-            if(str.charAt(i)>='a'&&str.charAt(i)<='z'){
-                countUp++;
-            }
-            //Character.isUpperCase(str.charAt(i))
-            if(str.charAt(i)>='A'&&str.charAt(i)<='Z'){
-                countDown++;
+            //(str.charAt(i)>='a' &&str.charAt(i)<='z')
+            if(Character.isLowerCase(str.charAt(i))){
+                return true;
             }
         }
-        return countUp>0&&countDown>0;
+        return false;
+    }
+
+    public static boolean containsLow(String str){
+        //return str.matches(".*[a-z].*[A-Z].*");
+        for (int i = 0; i < str.length(); i++) {
+            //if(str.charAt(i)>='A'&&str.charAt(i)<='Z')
+            if(Character.isUpperCase(str.charAt(i))){
+                return true;
+            }
+        }
+        return false;
     }
 
 /*
@@ -65,9 +68,10 @@ public class Main {
     public static boolean isGoodPW(String password,int len) {
         boolean isLong = isLong(password,len);
         boolean containsNum = containsNum(password);
-        boolean containsUpLow = containsUpLow(password);
+        boolean containsUp = containsUp(password);
+        boolean containsLow = containsLow(password);
 
-        return isLong&&containsNum&&containsUpLow;
+        return isLong && containsNum && containsUp && containsLow;
     }
 
     public static boolean isGood(String str,String regex) {
