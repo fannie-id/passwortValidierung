@@ -11,11 +11,12 @@ public class Main {
         }
         System.out.println("========================");
 
-        String regex ="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=*])(?=\\S+$).{8,}$";
+        String regex ="^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=*_])(?=\\S+$).{8,}$";
 
         System.out.println(isGood(password,regex));
     }
     public static boolean isLong(String str,int len){
+        //return str.matches(".{8,}");
         return str.length()>=len;
     }
 
